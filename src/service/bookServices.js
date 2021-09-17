@@ -1,5 +1,9 @@
-const data = require('../data/bookData')
+const bookData = require('../data/bookData')
 
 exports.getBooks = function () {
-    return data.getBooks()
+    return bookData.getBooks()
+}
+
+exports.saveBook = function (data) {
+    return bookData.saveBook(data)
 }

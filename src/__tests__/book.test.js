@@ -1,8 +1,28 @@
 const axios = require('axios')
 
-test.only('Shold a get books', async () => {
+const bookServices = require('../service/bookServices')
+
+test('Shold a get books', async function () {
     const response = await axios.get('http://localhost:3000/books')
     const books = response.data;
     expect(response.name).toBe(books.name);
+
+})
+test('Shold a save book', async function () {
+    const data = ({
+        name: 'Joana Assis',
+        email: 'joana@gmail.com',
+        checkin: '2021-09-17T00:00:00.000Z',
+        checkout: '2021-09-22T00:00:00.000Z',
+        type_rooms: 'Chale',
+        price: 2700.00,
+        type_payment: 'Credit Card',
+        status: 'ok'
+    })
+    const response = await axios.post('http://localhost:3000/books', data)
+    const book = response.data
+
+    expect(data.name).toBe(book.name)
+    expect(data.email).toBe(book.email)
 
 })

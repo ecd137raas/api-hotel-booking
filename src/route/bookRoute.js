@@ -1,11 +1,18 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
 
-const bookServices = require('../service/bookServices');
+const router = express.Router()
 
-router.get('/books', async (req, res) => {
-    const books = await bookServices.getBooks()
-    res.json(books)
+const bookServices = require('../service/bookServices')
+
+router.get('/books', async function (req, res) {
+    const response = await bookServices.getBooks()
+    res.json(response)
+})
+
+router.post('/books', async function (req, res) {
+    const data = req.body;
+    const response = await bookServices.saveBook(data)
+    res.json(response)
 })
 
 module.exports = router
