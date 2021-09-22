@@ -15,3 +15,7 @@ exports.saveBook = function (data) {
 exports.updateBook = function (id, data) {
     return bookData.updateBook(id, data)
 }
+
+exports.deleteBook = function (id) {
+    return bookData.deleteBook(id)
+}

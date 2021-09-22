@@ -15,3 +15,7 @@ exports.saveBook = (data) => {
 exports.updateBook = (id, data) => {
     return database.oneOrNone('update hotel.book set name=$1, email=$2, checkin=$3, checkout=$4, type_rooms=$5, price=$6, type_payment=$7, status=$8 where id=$9', [data.name, data.email, data.checkin, data.checkout, data.type_rooms, data.price, data.type_payment, data.status, id])
 }
+
+exports.deleteBook = (id) => {
+    return database.oneOrNone('delete from hotel.book where id=$1', [id])
+}

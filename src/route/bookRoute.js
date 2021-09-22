@@ -26,4 +26,9 @@ router.put('/books/:id', async function (req, res) {
     res.json(response)
 })
 
+router.delete('/books/:id', async function (req, res) {
+    const response = await bookServices.deleteBook(req.params.id)
+    res.json(response)
+})
+
 module.exports = router
