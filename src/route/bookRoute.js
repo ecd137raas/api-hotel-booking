@@ -4,9 +4,13 @@ const router = express.Router()
 
 const bookServices = require('../service/bookServices')
 
+router.get('/', async function (req, res) {
+    res.render('home')
+})
+
 router.get('/books', async function (req, res) {
     const response = await bookServices.getBooks()
-    res.json(response)
+    res.render('books', {res:response})
 })
 
 router.get('/books/:id', async function (req, res) {

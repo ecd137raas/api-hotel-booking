@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const bookServices = require('../service/bookServices')
 
-test('Shold a save book', async function () {
+test.only('Shold a save book', async function () {
     const data = {
         name: 'Joana Assis',
         email: 'joana@gmail.com',
